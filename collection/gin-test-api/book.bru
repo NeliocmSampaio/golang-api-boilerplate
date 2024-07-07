@@ -1,0 +1,20 @@
+meta {
+  name: book
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base-url}}/book
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "Id": 1,
+      "Name": "test repositorio II",
+      "Author": "test author IV",
+      "Price": 8.99
+  }
+}
