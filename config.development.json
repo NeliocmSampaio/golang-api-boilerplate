@@ -3,7 +3,7 @@
         "user": "admin",
         "password": "4eb96e24-8f53-4052-86ea-c3decc24cef9",
         "net": "tcp",
-        "host": "127.0.0.1",
+        "host": "golang-boilerplate-db.cvuqssk26w4y.us-east-2.rds.amazonaws.com",
         "port": 3306,
         "dbname": "book_store"
     }
