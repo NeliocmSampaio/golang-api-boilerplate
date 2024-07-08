@@ -15,7 +15,7 @@ import (
 
 func main() {
 
-	cfg, err := infrastructure.NewConfig("config.json")
+	cfg, err := infrastructure.NewConfig("config.development.json")
 	if err != nil {
 		log.Fatal(err)
 	}
