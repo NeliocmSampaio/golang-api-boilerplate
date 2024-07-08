@@ -45,7 +45,9 @@ func (r *BookRepository) Add(book entities.Book) (err error) {
 
 func (r *BookRepository) GetBooks() (books []entities.Book, err error) {
 	query := `
-		SELECT * FROM tab_books;
+		SELECT id, title, author, price, deleted
+		FROM tab_books
+		WHERE tab_books.deleted = 0;
 	`
 
 	rows, err := r.db.Query(query)
@@ -56,7 +58,7 @@ func (r *BookRepository) GetBooks() (books []entities.Book, err error) {
 
 	for rows.Next() {
 		var book entities.Book
-		if err := rows.Scan(&book.Id, &book.Name, &book.Author, &book.Price); err != nil {
+		if err := rows.Scan(&book.Id, &book.Name, &book.Author, &book.Price, &book.Deleted); err != nil {
 			return books, err
 		}
 		books = append(books, book)
