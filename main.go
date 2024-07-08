@@ -21,11 +21,12 @@ func main() {
 	}
 
 	mysqlConfig := mysql.Config{
-		User:   cfg.DB.User,
-		Passwd: cfg.DB.Password,
-		Net:    cfg.DB.Net,
-		Addr:   fmt.Sprintf("%s:%d", cfg.DB.Host, cfg.DB.Port),
-		DBName: cfg.DB.DBName,
+		User:                 cfg.DB.User,
+		Passwd:               cfg.DB.Password,
+		Net:                  cfg.DB.Net,
+		Addr:                 fmt.Sprintf("%s:%d", cfg.DB.Host, cfg.DB.Port),
+		DBName:               cfg.DB.DBName,
+		AllowNativePasswords: true,
 	}
 
 	db, err := sql.Open("mysql", mysqlConfig.FormatDSN())

@@ -1,0 +1,11 @@
+{
+    "db": {
+        "user": "admin",
+        "password": "4eb96e24-8f53-4052-86ea-c3decc24cef9",
+        "net": "tcp",
+        "host": "127.0.0.1",
+        "port": 3306,
+        "dbname": "book_store"
+    }
+    
+}
