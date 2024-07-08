@@ -14,16 +14,10 @@ import (
 )
 
 func main() {
-	cfg := infrastructure.Config{
-		// TODO: extract to a json config file
-		DB: infrastructure.DBConfig{
-			User:     "admin",
-			Password: "admin",
-			Net:      "tcp",
-			Host:     "127.0.0.1",
-			Port:     3306,
-			DBName:   "book_store",
-		},
+
+	cfg, err := infrastructure.NewConfig("config.json")
+	if err != nil {
+		log.Fatal(err)
 	}
 
 	mysqlConfig := mysql.Config{
