@@ -5,6 +5,7 @@ import (
 	"gin-framework-test/basic-api/domain/entities"
 	"gin-framework-test/basic-api/services"
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
@@ -47,4 +48,23 @@ func (c *BookController) HandleGetBooks(ctx *gin.Context) {
 	}
 
 	ctx.JSON(http.StatusOK, books)
+}
+
+func (c *BookController) HandleDeleteBook(ctx *gin.Context) {
+	id, success := ctx.Params.Get("id")
+	if !success {
+		ctx.Status(http.StatusNotFound)
+	}
+
+	bookId, err := strconv.Atoi(id)
+	if err != nil {
+		ctx.Status(http.StatusBadRequest)
+	}
+
+	err = c.bookService.DeleteBook(bookId)
+	if err != nil {
+		ctx.Status(http.StatusInternalServerError)
+	}
+
+	ctx.Status(http.StatusOK)
 }

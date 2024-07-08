@@ -5,4 +5,5 @@ func (r *Router) SetupRouter() {
 
 	r.engine.POST("/book", r.bookController.HandlePostBook)
 	r.engine.GET("/books", r.bookController.HandleGetBooks)
+	r.engine.DELETE("/book/:id", r.bookController.HandleDeleteBook)
 }

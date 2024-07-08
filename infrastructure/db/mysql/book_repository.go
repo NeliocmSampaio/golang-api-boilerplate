@@ -68,3 +68,19 @@ func (r *BookRepository) GetBooks() (books []entities.Book, err error) {
 
 	return books, nil
 }
+
+func (r *BookRepository) DeleteBook(id int) (err error) {
+	query := `
+		UPDATE tab_books
+		SET tab_books.deleted = 1
+		WHERE tab_books.id = ?
+		;
+	`
+
+	_, err = r.db.Exec(query, id)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}

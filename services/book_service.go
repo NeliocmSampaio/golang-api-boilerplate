@@ -9,6 +9,7 @@ import (
 type BookService interface {
 	Save(book entities.Book) error
 	GetBooks() (books []entities.Book, err error)
+	DeleteBook(id int) (err error)
 }
 
 type bookService struct {
@@ -40,4 +41,13 @@ func (s *bookService) GetBooks() (books []entities.Book, err error) {
 	}
 
 	return books, nil
+}
+
+func (s *bookService) DeleteBook(id int) (err error) {
+	err = s.db.DeleteBook(id)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

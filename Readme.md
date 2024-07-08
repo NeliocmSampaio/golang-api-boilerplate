@@ -5,6 +5,5 @@
         - Implement the CRUD operations (update and delete);
         - Setup cache with redis;
         - Automate dependency injection using containers;
-        - Extract config to a JSON file;
         - Authentication;
         - Middlewares;
